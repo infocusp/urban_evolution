@@ -69,16 +69,6 @@ def get_sampled_data(data, windows):
 
 
 
-def train(model,x_train,y_train,x_val,y_val):
-
-    model=model.fit(x_train,y_train,eval_set=[(x_val,y_val)])
-
-
-def predict(model,x_test,y_test):
-    y_pred=model.predict(x_test)
-    cm = confusion_matrix(y_test, y_pred, labels=[0,1,2,3])
-    report = classification_report(y_test, y_pred, labels=[0,1,2,3])
-    return y_pred,cm,report
 
 def get_sampled_test(test_data):
     new_data=[]
@@ -92,6 +82,47 @@ def get_sampled_test(test_data):
             new_data.append(np.concatenate(((np.nanmean(mean_data,axis=(1,2))),static_data),axis=0 ))
             new_label.append(test_data[0,i,j])
     return new_data, new_label
+
+
+
+def get_sampled_spatial_convolve_data(data,windows):
+    new_data=[]
+    new_label=[]
+    
+    for window in tqdm(windows):
+        row_start = int(window.row_off)
+        row_stop = int(window.row_off + window.height)
+        col_start = int(window.col_off)
+        col_stop = int(window.col_off + window.width)
+       
+        for i in range(row_start+2,row_stop-2):
+            for j in range(col_start+2, col_stop-2):
+                    mean_data=np.concatenate((data[1:7,i-2:i+3,j-2:j+3], data[8:9,i-2:i+3,j-2:j+3]),axis=0)
+                    static_data=data[1:,i,j]
+            new_data.append(np.concatenate(((np.nanmean(mean_data,axis=(1,2))),static_data),axis=0 ))
+            new_label.append(data[0,i,j])
+               
+    return new_data,new_label
+
+
+def get_sampled_spatial_temporal_convolve_data(data,windows):
+
+    new_data=[]
+    for window in tqdm(windows):
+        row_start = int(window.row_off)
+        row_stop = int(window.row_off + window.height)
+        col_start = int(window.col_off)
+        col_stop = int(window.col_off + window.width)
+        for i in range(row_start+2,row_stop-2):
+            for j in range(col_start+2, col_stop-2):
+                    temp_data=data[:,i-2:i+2,j-2:j+2]
+
+                    print(temp_data)
+                
+                    new_data.append(np.nanmean(temp_data,axis=(0,1,2)))
+       
+    return new_data
+
 
 
 def save_prediction(test_labels, filter_size,pred_label_mask,test_pred,output_path):
@@ -169,51 +200,19 @@ def pre_process(train_features, train_labels,test_features,test_labels, block_co
 
     return x_train,y_train,x_test,y_test,x_val,y_val,train_mask, test_mask, val_mask
 
-def get_sampled_spatial_convolve_data(data,windows):
-    new_data=[]
-    new_label=[]
-    
-    for window in tqdm(windows):
-        row_start = int(window.row_off)
-        row_stop = int(window.row_off + window.height)
-        col_start = int(window.col_off)
-        col_stop = int(window.col_off + window.width)
-       
-        for i in range(row_start+2,row_stop-2):
-            for j in range(col_start+2, col_stop-2):
-                    mean_data=np.concatenate((data[1:7,i-2:i+3,j-2:j+3], data[8:9,i-2:i+3,j-2:j+3]),axis=0)
-                    static_data=data[1:,i,j]
-            new_data.append(np.concatenate(((np.nanmean(mean_data,axis=(1,2))),static_data),axis=0 ))
-            new_label.append(data[0,i,j])
-               
-    return new_data,new_label
-
-
-def get_sampled_spatial_temporal_convolve_data(data,windows):
-
-    new_data=[]
-    for window in tqdm(windows):
-        row_start = int(window.row_off)
-        row_stop = int(window.row_off + window.height)
-        col_start = int(window.col_off)
-        col_stop = int(window.col_off + window.width)
-        for i in range(row_start+2,row_stop-2):
-            for j in range(col_start+2, col_stop-2):
-                    temp_data=data[:,i-2:i+2,j-2:j+2]
-
-                    print(temp_data)
-                
-                    new_data.append(np.nanmean(temp_data,axis=(0,1,2)))
-       
-    return new_data
 
 
 
+def train(model,x_train,y_train,x_val,y_val):
+
+    model=model.fit(x_train,y_train,eval_set=[(x_val,y_val)])
 
 
-
-
-
+def predict(model,x_test,y_test):
+    y_pred=model.predict(x_test)
+    cm = confusion_matrix(y_test, y_pred, labels=[0,1,2,3])
+    report = classification_report(y_test, y_pred, labels=[0,1,2,3])
+    return y_pred,cm,report
 
 
 
