@@ -1,0 +1,35 @@
+PROJECT_ID: "ai-sandbox-399505"   
+
+filter_size: 5
+
+block_coverage: 0.3
+
+total_blocks: 100
+
+test_size: 0.3
+
+pred_year: 2016
+
+train_year: 2011
+
+task: 1
+
+train_year: 2022
+
+pred_year: 2023
+
+train_years: [2022,2023]
+
+bucket_paths_next_year: {"features":"gs://earth-engine-seminar/urbanization/data/export_16012025/",
+                        "labels":"gs://earth-engine-seminar/urbanization/data/export_07022025/",
+                        "customs":"gs://earth-engine-seminar/urbanization/data/export_07022025/"}
+
+
+bucket_paths_five_year: {"features":"gs://earth-engine-seminar/urbanization/data/export_16012025/",
+                        "labels":"gs://earth-engine-seminar/urbanization/data/export_16012025/",
+                        "customs":"gs://earth-engine-seminar/urbanization/data/export_16012025/"}
+
+
+
+
+
