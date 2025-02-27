@@ -1,0 +1,3 @@
+[submodule "urbanevo_streamlit"]
+	path = urbanevo_streamlit
+	url = https://github.com/ashwini1912/urbanevo_streamlit.git
