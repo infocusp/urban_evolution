@@ -26,7 +26,8 @@ with tab_label:
     - Contains estimates of the number of persons per square kilometer
     - Updated after every 5 years
     - Can use the population density to classify regions into urban and rural.
-    - Band used is 'population_density'
+    - Band used is 'population_density
+    - Pixel size is 927.67 m 
 """
 )
         #st.image("static/CIESIN_GPWv411_GPW_Population_Density_sample.png")
@@ -39,6 +40,7 @@ with tab_label:
         - Updated every year
         - Use only classes denoting the urban and built up lands (`LC_Type1` band from the data set,value 13)
         - Data is binary, which means it denotes 1 if there is impervious surface else 0.
+        - Pixel size is 500 m
         
     """
 )
@@ -78,23 +80,23 @@ with tab_features:
         st.subheader("[TerraClimate: Monthly Climate](https://developers.google.com/earth-engine/datasets/catalog/IDAHO_EPSCOR_TERRACLIMATE)", divider=True)
         st.image("static/TERRACLIMATE.png")
         with st.expander("Bands Details"):
-            st.markdown("**pdsi**- Palmer Drought Severity Index: Its a standardized index that measures the severity and duration of drought using temperature and precipitation data to estimate the dryness of a region. Updated monthly. ")
-            st.markdown("**pr** - Precipitation accumulation is the total amount of precipitation over a certain period of time in a specified place.Updated monthly.")
-            st.markdown("**tmmn**-Minimum temperature recorded over a certain period in a specified place. Updated monthly.")
-            st.markdown("**tmmx**-Maximum temperature recorded over a certain period in a specified place. Updated monthly.")
+            st.markdown("**pdsi**- Palmer Drought Severity Index: Its a standardized index that measures the severity and duration of drought using temperature and precipitation data to estimate the dryness of a region. Updated monthly. Pixel size being 4638.3 m")
+            st.markdown("**pr** - Precipitation accumulation is the total amount of precipitation over a certain period of time in a specified place.Updated monthly. Pixel size being 4638.3 m")
+            st.markdown("**tmmn**-Minimum temperature recorded over a certain period in a specified place. Updated monthly. Pixel size being 4638.3 m")
+            st.markdown("**tmmx**-Maximum temperature recorded over a certain period in a specified place. Updated monthly. Pixel size being 4638.3 m")
      with col2_modis:
         st.subheader("[MOD13A2.061 Terra Vegetation ](https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A2)", divider=True)
         st.image("static/MODIS_061.png")
         with st.expander("Bands Details"):
-            st.markdown("**NDVI**- 16 Day Normalized Difference Vegetation Index is a measure of the amount of and vigor of vegetation on the land surface. This metric is developed to more easily distinguish between green vegetation from bare soils. Updated monthly.")
-            st.markdown("**EVI** - 16 Day Enhanced Vegetation Index. Updated monthly.")
+            st.markdown("**NDVI**- 16 Day Normalized Difference Vegetation Index is a measure of the amount of and vigor of vegetation on the land surface. This metric is developed to more easily distinguish between green vegetation from bare soils. Updated monthly. Pixel size being 1000 m")
+            st.markdown("**EVI** - 16 Day Enhanced Vegetation Index. Updated monthly. Pixel size being 1000 m")
         
      col_srtm, col2_mcd  = st.columns(2)
      with col_srtm:
         st.subheader("[SRTM Digital Elevation](https://developers.google.com/earth-engine/datasets/catalog/CGIAR_SRTM90_V4)", divider=True)
         st.image("static/srtm.png")
         with st.expander("Bands Details"):
-            st.markdown("**Elevation**-  Contains information about the elevation of a region in meters(m).")
+            st.markdown("**Elevation**-  Contains information about the elevation of a region in meters(m). Pixel size being 90 m")
      with col2_mcd:
         st.subheader("[MODIS Land Cover Type](https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD12Q1)", divider=True)
         st.image("static/MODIS_061_MCD12Q1_sample.png")
@@ -105,13 +107,13 @@ with tab_features:
         st.subheader("[GPWv411: Population Density](https://developers.google.com/earth-engine/datasets/catalog/CIESIN_GPWv411_GPW_Population_Density)", divider=True)
         st.image("static/CIESIN_GPWv411_GPW_Population_Density_sample.png")
         with st.expander("Bands Details"):
-            st.markdown("**population density** - It estimates number of persons per square kilometer. Updated every 5 years.")
+            st.markdown("**population density** - It estimates number of persons per square kilometer. Updated every 5 years. Pixel size is 927.67m")
      with col2_build:
         st.subheader("[GHSL: Global building volume](https://developers.google.com/earth-engine/datasets/catalog/JRC_GHSL_P2023A_GHS_BUILT_V)", divider=True)
         st.image("static/ghsl.png")
         with st.expander("Bands Details"):
-            st.markdown("**bv_total**- Total building volume per grid cell. Updated every 5 year.")
-            st.markdown("**bv_nres**- Non-residential building volume per grid cell. Updated every 5 year.")
+            st.markdown("**bv_total**- Total building volume per grid cell. Updated every 5 year. Pixel size is 100m")
+            st.markdown("**bv_nres**- Non-residential building volume per grid cell. Updated every 5 year. Pixel size is 100m")
     
 
      col_custom,col_road = st.columns(2)
