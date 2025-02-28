@@ -8,19 +8,19 @@ st.sidebar.markdown("# Model Training Pipeline")
 tab_design, tab_data, tab_model_year, tab_model = st.tabs(["Pipeline Design", "Data Preparation","Data Selection", "Model Selection"])
 with tab_design:
     st.subheader("Model Training Pipeline Design", divider=True)
-    st.image("static/hld.png")
+    st.image("urbanevo_streamlit/static/hld.png")
 
 with tab_data:
     st.subheader("Data Preparation", divider=True)
     st.markdown("The Data pre-processing involves mainly three major steps to create the input dataset. This involves stacking tiffs, creating spatial windows and train-test splits.")
     st.markdown("### Stacking tiffs ###")
     st.markdown("We have separate tiff files for each year's label data and features in the GCS bucket. We need to convert these files into a single multi-band raster tiff file. In this step, we handle the missing values and concatenate the data accordingly for each year.This results in a stacked single raw tiff which contains labels and features for each year.")
-    st.image("static/Stacked.drawio.png")
+    st.image("urbanevo_streamlit/static/Stacked.drawio.png")
     st.markdown("### Creating Spatial Windows ###")
     st.markdown("As the Geospatial data can be very large depending on the resolution. Processing this data might require higher memory. To make this efficient, we can divide the raw stacked data into several smaller windows depending on the block size we need. This will also ensure that the spatial context is preserved. This also helps us create the input training and validation data independently, thus not causing any data leakage.")
     st.markdown("### Train-Test Splits ###")
     st.markdown("To maintain spatial independence, raw data is split into training and validation datasets. Here we are using a 70:30 data split for training and validation datasets.This would give us the processed data, which can be used as an input to the model.")
-    st.image("static/splitting_stacked_features.drawio.png")
+    st.image("urbanevo_streamlit/static/splitting_stacked_features.drawio.png")
 
 with tab_model_year:
     st.subheader("Data Selection for Model Training", divider=True)

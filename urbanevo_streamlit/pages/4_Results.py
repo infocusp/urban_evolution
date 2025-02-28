@@ -19,8 +19,8 @@ with tab_year_1:
      
      #st.write("Trained Model Year:", option , " Predictions for Year:", option+1)
      
-     pred_filename = "static/pred_next_"+str(option)+".csv"
-     label_filename = "static/label_next_"+str(option)+".csv"
+     pred_filename = "urbanevo_streamlit/static/pred_next_"+str(option)+".csv"
+     label_filename = "urbanevo_streamlit/static/label_next_"+str(option)+".csv"
      #print(option)
      df = pd.read_csv(label_filename)
      print(df.columns)
@@ -78,8 +78,8 @@ with tab_year_5:
      
      #st.write("Trained Model Year:", option , " Predictions for Year:", option+1)
      
-     pred_filename = "static/export_"+str(option)+".csv"
-     label_filename = "static/label_"+str(option)+".csv"
+     pred_filename = "urbanevo_streamlit/static/export_"+str(option)+".csv"
+     label_filename = "urbanevo_streamlit/static/label_"+str(option)+".csv"
      #print(option)
      df = pd.read_csv(label_filename)
      print(df.columns)
