@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 st.markdown("# Modelling Results")
 st.sidebar.markdown("# Modelling Results")
+tab_year_5, tab_year_1 = st.tabs(["5 year model", "1 year model"])
 #st.header("Modelling Results", divider=True)
 #df = pd.read_csv("static/l2_2015.csv")
 #st.map(df,color='color',size=1)
