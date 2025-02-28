@@ -9,7 +9,6 @@ tab_year_5, tab_year_1 = st.tabs(["5 year model", "1 year model"])
 #st.map(df,color='color',size=1)
 
 
-#tab_year_5, tab_year1 = st.tabs(["5 year model", "1 year model"])
 with tab_year_1:
      st.subheader("1 year", divider=True)
 
@@ -53,7 +52,7 @@ with tab_year_1:
      selection = st.radio(
           "",
           ["Only Labels", "Only Predictions", "Comparison"],
-          horizontal = True
+          horizontal = True, key="radio_1_year"
           )
      
      if selection == "Only Labels":
@@ -112,7 +111,7 @@ with tab_year_5:
      selection = st.radio(
           "",
           ["Only Labels", "Only Predictions", "Comparison"],
-          horizontal = True
+          horizontal = True,key="radio_5_year"
           )
      
      if selection == "Only Labels":
