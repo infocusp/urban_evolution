@@ -26,7 +26,7 @@ st.markdown(
 
     **Urban-Evo model predicts the probability of urbanization across locations over the next five year period.**
     It uses geospatial climatic, vegatation & population growth data from earth engine to predict urbanization.""")
-st.image("static/final_2.gif", caption="Comparison of 5 year Ground Truths and predictions for cities in Maharashtra")
+st.image("urbanevo_streamlit/static/final_2.gif", caption="Comparison of 5 year Ground Truths and predictions for cities in Maharashtra")
 
 st.markdown("""
     ### Want to learn more?
