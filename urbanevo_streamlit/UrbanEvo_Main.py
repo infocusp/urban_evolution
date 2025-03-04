@@ -29,9 +29,9 @@ st.markdown(
 st.image("urbanevo_streamlit/static/final_2.gif", caption="Comparison of 5 year Ground Truths and predictions for cities in Maharashtra")
 
 st.markdown("""
-    ### Want to see the predictions in action?
- - 🌍 [Check Out the Visualization in the interactive Earth Engine app!](https://ee-mayuresh.projects.earthengine.app/view/urban-evo-demo)""")
-st.page_link("pages/4_Results.py", label="Check out the prediction results!", icon="🌎")
+    ### Want to see the predictions in action?""")
+st.page_link("https://ee-mayuresh.projects.earthengine.app/view/urban-evo-demo", label="Check Out the Visualization in the interactive Earth Engine app!", icon="🌎")
+st.page_link("pages/4_Results.py", label="View the prediction results here!", icon="🌎")
 
 st.markdown("""
     ### Want to learn more?
