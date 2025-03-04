@@ -30,8 +30,8 @@ st.image("urbanevo_streamlit/static/final_2.gif", caption="Comparison of 5 year 
 
 st.markdown("""
     ### Want to see the predictions in action?""")
-st.page_link("https://ee-mayuresh.projects.earthengine.app/view/urban-evo-demo", label="Check Out the Visualization in the interactive Earth Engine app!", icon="🌎")
-st.page_link("pages/4_Results.py", label="View the prediction results here!", icon="🌎")
+st.page_link("https://ee-mayuresh.projects.earthengine.app/view/urban-evo-demo", label=":blue[Check Out the Visualization in the interactive Earth Engine app!]", icon="🌎")
+st.page_link("pages/4_Results.py", label=":blue[View the prediction results here!]", icon="🌎")
 
 st.markdown("""
     ### Want to learn more?
